@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TradeService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">TradeService.java</span></div><h1>TradeService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import com.nnk.springboot.domain.Trade;
+import com.nnk.springboot.repositories.TradeRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+/**
+ * Service métier pour la gestion des Trade.
+ */
+@Service
+public class TradeService {
+
+    private final TradeRepository tradeRepository;
+
+<span class="fc" id="L18">    public TradeService(TradeRepository tradeRepository) {</span>
+<span class="fc" id="L19">        this.tradeRepository = tradeRepository;</span>
+<span class="fc" id="L20">    }</span>
+
+    public List&lt;Trade&gt; findAll() {
+<span class="fc" id="L23">        return tradeRepository.findAll();</span>
+    }
+
+    public Trade findById(Integer id) {
+<span class="fc" id="L27">        return tradeRepository.findById(id)</span>
+<span class="fc" id="L28">                .orElseThrow(() -&gt; new NoSuchElementException(&quot;Trade introuvable id=&quot; + id));</span>
+    }
+
+    public Trade create(Trade trade) {
+<span class="fc" id="L32">        return tradeRepository.save(trade);</span>
+    }
+
+    public Trade update(Integer id, Trade trade) {
+<span class="fc" id="L36">        Trade existing = findById(id);</span>
+
+<span class="fc" id="L38">        existing.setAccount(trade.getAccount());</span>
+<span class="fc" id="L39">        existing.setType(trade.getType());</span>
+<span class="fc" id="L40">        existing.setBuyQuantity(trade.getBuyQuantity());</span>
+<span class="fc" id="L41">        existing.setSellQuantity(trade.getSellQuantity());</span>
+<span class="fc" id="L42">        existing.setBuyPrice(trade.getBuyPrice());</span>
+<span class="fc" id="L43">        existing.setSellPrice(trade.getSellPrice());</span>
+<span class="fc" id="L44">        existing.setTradeDate(trade.getTradeDate());</span>
+
+<span class="fc" id="L46">        return tradeRepository.save(existing);</span>
+    }
+
+    public void delete(Integer id) {
+<span class="fc" id="L50">        Trade existing = findById(id);</span>
+<span class="fc" id="L51">        tradeRepository.delete(existing);</span>
+<span class="fc" id="L52">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

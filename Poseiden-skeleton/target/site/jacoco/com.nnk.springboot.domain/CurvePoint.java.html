@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CurvePoint.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.domain</a> &gt; <span class="el_source">CurvePoint.java</span></div><h1>CurvePoint.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.domain;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
+
+@Entity
+@Table(name = &quot;CurvePoint&quot;)
+public class CurvePoint {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @NotNull
+    private Integer curveId;
+
+    private Timestamp asOfDate;
+    private Double term;
+    private Double value;
+    private Timestamp creationDate;
+
+<span class="nc" id="L23">    public CurvePoint() {</span>
+<span class="nc" id="L24">    }</span>
+
+<span class="fc" id="L26">    public CurvePoint(Integer curveId, Double term, Double value) {</span>
+<span class="fc" id="L27">        this.curveId = curveId;</span>
+<span class="fc" id="L28">        this.term = term;</span>
+<span class="fc" id="L29">        this.value = value;</span>
+<span class="fc" id="L30">    }</span>
+
+<span class="fc" id="L32">    public Integer getId() { return id; }</span>
+<span class="fc" id="L33">    public void setId(Integer id) { this.id = id; }</span>
+
+<span class="fc" id="L35">    public Integer getCurveId() { return curveId; }</span>
+<span class="fc" id="L36">    public void setCurveId(Integer curveId) { this.curveId = curveId; }</span>
+
+<span class="fc" id="L38">    public Double getTerm() { return term; }</span>
+<span class="fc" id="L39">    public void setTerm(Double term) { this.term = term; }</span>
+
+<span class="fc" id="L41">    public Double getValue() { return value; }</span>
+<span class="fc" id="L42">    public void setValue(Double value) { this.value = value; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

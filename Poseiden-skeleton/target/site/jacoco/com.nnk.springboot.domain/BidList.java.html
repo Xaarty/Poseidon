@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BidList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.domain</a> &gt; <span class="el_source">BidList.java</span></div><h1>BidList.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.domain;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
+
+@Entity
+@Table(name = &quot;BidList&quot;)
+public class BidList {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer bidListId;
+
+    @NotBlank
+    private String account;
+
+    @NotBlank
+    private String type;
+
+    @NotNull
+    private Double bidQuantity;
+
+    private Double askQuantity;
+    private Double bid;
+    private Double ask;
+    private String benchmark;
+    private Timestamp bidListDate;
+    private String commentary;
+
+<span class="nc" id="L32">    public BidList() {</span>
+<span class="nc" id="L33">    }</span>
+
+<span class="fc" id="L35">    public BidList(String account, String type, Double bidQuantity) {</span>
+<span class="fc" id="L36">        this.account = account;</span>
+<span class="fc" id="L37">        this.type = type;</span>
+<span class="fc" id="L38">        this.bidQuantity = bidQuantity;</span>
+<span class="fc" id="L39">    }</span>
+
+<span class="fc" id="L41">    public Integer getBidListId() { return bidListId; }</span>
+<span class="fc" id="L42">    public void setBidListId(Integer bidListId) { this.bidListId = bidListId; }</span>
+
+<span class="fc" id="L44">    public String getAccount() { return account; }</span>
+<span class="fc" id="L45">    public void setAccount(String account) { this.account = account; }</span>
+
+<span class="fc" id="L47">    public String getType() { return type; }</span>
+<span class="fc" id="L48">    public void setType(String type) { this.type = type; }</span>
+
+<span class="fc" id="L50">    public Double getBidQuantity() { return bidQuantity; }</span>
+<span class="fc" id="L51">    public void setBidQuantity(Double bidQuantity) { this.bidQuantity = bidQuantity; }</span>
+
+<span class="fc" id="L53">    public Double getAskQuantity() { return askQuantity; }</span>
+<span class="fc" id="L54">    public void setAskQuantity(Double askQuantity) { this.askQuantity = askQuantity; }</span>
+
+<span class="fc" id="L56">    public Double getBid() { return bid; }</span>
+<span class="fc" id="L57">    public void setBid(Double bid) { this.bid = bid; }</span>
+
+<span class="fc" id="L59">    public Double getAsk() { return ask; }</span>
+<span class="fc" id="L60">    public void setAsk(Double ask) { this.ask = ask; }</span>
+
+<span class="fc" id="L62">    public String getBenchmark() { return benchmark; }</span>
+<span class="fc" id="L63">    public void setBenchmark(String benchmark) { this.benchmark = benchmark; }</span>
+
+<span class="fc" id="L65">    public Timestamp getBidListDate() { return bidListDate; }</span>
+<span class="fc" id="L66">    public void setBidListDate(Timestamp bidListDate) { this.bidListDate = bidListDate; }</span>
+
+<span class="fc" id="L68">    public String getCommentary() { return commentary; }</span>
+<span class="fc" id="L69">    public void setCommentary(String commentary) { this.commentary = commentary; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

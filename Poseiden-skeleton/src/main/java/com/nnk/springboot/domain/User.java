@@ -2,19 +2,29 @@ package com.nnk.springboot.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 public class User {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+
     @NotBlank(message = "Username is mandatory")
     private String username;
+
     @NotBlank(message = "Password is mandatory")
+    @Pattern(
+            regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&]).{8,}$",
+            message = "Password is minimum 8 characters, one number, one uppercase and one symbol"
+    )
     private String password;
+
     @NotBlank(message = "FullName is mandatory")
     private String fullname;
+
     @NotBlank(message = "Role is mandatory")
     private String role;
 

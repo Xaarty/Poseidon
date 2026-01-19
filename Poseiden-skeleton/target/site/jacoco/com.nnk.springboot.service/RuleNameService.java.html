@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuleNameService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">RuleNameService.java</span></div><h1>RuleNameService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import com.nnk.springboot.domain.RuleName;
+import com.nnk.springboot.repositories.RuleNameRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+@Service
+public class RuleNameService {
+
+    private final RuleNameRepository ruleNameRepository;
+
+<span class="fc" id="L15">    public RuleNameService(RuleNameRepository ruleNameRepository) {</span>
+<span class="fc" id="L16">        this.ruleNameRepository = ruleNameRepository;</span>
+<span class="fc" id="L17">    }</span>
+
+    public List&lt;RuleName&gt; findAll() {
+<span class="fc" id="L20">        return ruleNameRepository.findAll();</span>
+    }
+
+    public RuleName findById(Integer id) {
+<span class="fc" id="L24">        return ruleNameRepository.findById(id)</span>
+<span class="fc" id="L25">                .orElseThrow(() -&gt; new NoSuchElementException(&quot;RuleName introuvable id=&quot; + id));</span>
+    }
+
+    public RuleName create(RuleName ruleName) {
+<span class="fc" id="L29">        return ruleNameRepository.save(ruleName);</span>
+    }
+
+    public RuleName update(Integer id, RuleName ruleName) {
+<span class="fc" id="L33">        RuleName existing = findById(id);</span>
+
+<span class="fc" id="L35">        existing.setName(ruleName.getName());</span>
+<span class="fc" id="L36">        existing.setDescription(ruleName.getDescription());</span>
+<span class="fc" id="L37">        existing.setJson(ruleName.getJson());</span>
+<span class="fc" id="L38">        existing.setTemplate(ruleName.getTemplate());</span>
+<span class="fc" id="L39">        existing.setSqlStr(ruleName.getSqlStr());</span>
+<span class="fc" id="L40">        existing.setSqlPart(ruleName.getSqlPart());</span>
+
+<span class="fc" id="L42">        return ruleNameRepository.save(existing);</span>
+    }
+
+    public void delete(Integer id) {
+<span class="fc" id="L46">        RuleName existing = findById(id);</span>
+<span class="fc" id="L47">        ruleNameRepository.delete(existing);</span>
+<span class="fc" id="L48">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
