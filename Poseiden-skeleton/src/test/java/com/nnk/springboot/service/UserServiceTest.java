@@ -28,7 +28,7 @@ class UserServiceTest {
     private UserService userService;
 
     @Test
-    void create_shouldEncodePassword_andSave() {
+    void create() {
         User u = new User();
         u.setUsername("john");
         u.setPassword("plain");
@@ -46,7 +46,7 @@ class UserServiceTest {
     }
 
     @Test
-    void update_shouldEncodePassword_andSave_withId() {
+    void updated() {
         User u = new User();
         u.setPassword("plain2");
 
@@ -62,7 +62,7 @@ class UserServiceTest {
     }
 
     @Test
-    void delete_shouldFindAndDelete() {
+    void delete() {
         User u = new User();
         u.setId(1);
 
@@ -74,7 +74,7 @@ class UserServiceTest {
     }
 
     @Test
-    void findAll_shouldReturnUsers() {
+    void findAllSuccess() {
         User u1 = new User();
         u1.setId(1);
         u1.setUsername("john");
@@ -93,6 +93,6 @@ class UserServiceTest {
         assertEquals("jane", users.get(1).getUsername());
 
         verify(userRepository).findAll();
-        verifyNoInteractions(passwordEncoder); // findAll ne doit pas encoder
+        verifyNoInteractions(passwordEncoder);
     }
 }

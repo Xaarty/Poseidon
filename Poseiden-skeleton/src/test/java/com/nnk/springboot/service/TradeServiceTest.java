@@ -26,7 +26,7 @@ class TradeServiceTest {
     private TradeService tradeService;
 
     @Test
-    void findAll_shouldReturnList() {
+    void findAll() {
         when(tradeRepository.findAll()).thenReturn(List.of(
                 new Trade("A1", "T1"),
                 new Trade("A2", "T2")
@@ -39,13 +39,13 @@ class TradeServiceTest {
     }
 
     @Test
-    void findById_shouldThrow_whenNotFound() {
+    void findByIdError() {
         when(tradeRepository.findById(999)).thenReturn(Optional.empty());
         assertThrows(NoSuchElementException.class, () -> tradeService.findById(999));
     }
 
     @Test
-    void create_shouldSave() {
+    void create() {
         Trade t = new Trade("Acc", "Type");
         when(tradeRepository.save(t)).thenReturn(t);
 
@@ -56,7 +56,7 @@ class TradeServiceTest {
     }
 
     @Test
-    void update_shouldCopyFields_andSave() {
+    void update() {
         Integer id = 1;
 
         Trade existing = new Trade("OldAcc", "OldType");
@@ -76,7 +76,7 @@ class TradeServiceTest {
     }
 
     @Test
-    void delete_shouldFindAndDelete() {
+    void delete() {
         Integer id = 1;
 
         Trade existing = new Trade("Acc", "Type");

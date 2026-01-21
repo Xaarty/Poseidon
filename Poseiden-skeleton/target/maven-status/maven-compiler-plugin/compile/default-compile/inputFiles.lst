@@ -1,14 +1,17 @@
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\TradeRepository.java
+C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\config\PasswordHashPrinter.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\BidListService.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\RatingService.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\RatingController.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\RuleNameController.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\BidListController.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\LoginController.java
+C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\CustomUserDetailsService.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\RuleNameService.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\RuleNameRepository.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\BidListRepository.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\domain\User.java
+C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\config\SecurityConfig.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\domain\CurvePoint.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\UserRepository.java
 C:\Users\caill\Desktop\Projetopen Java\Projet7\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\UserController.java

@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/**
- * Service métier pour la gestion des Trade.
- */
 @Service
 public class TradeService {
 

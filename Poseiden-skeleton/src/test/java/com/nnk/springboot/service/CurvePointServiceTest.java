@@ -26,7 +26,7 @@ class CurvePointServiceTest {
     private CurvePointService curvePointService;
 
     @Test
-    void findAll_shouldReturnList() {
+    void findAll() {
         when(curvePointRepository.findAll()).thenReturn(List.of(
                 new CurvePoint(1, 10d, 100d),
                 new CurvePoint(2, 20d, 200d)
@@ -39,7 +39,7 @@ class CurvePointServiceTest {
     }
 
     @Test
-    void findById_shouldReturnEntity_whenFound() {
+    void findByIdSuccess() {
         CurvePoint cp = new CurvePoint(1, 10d, 100d);
         cp.setId(1);
 
@@ -53,14 +53,14 @@ class CurvePointServiceTest {
     }
 
     @Test
-    void findById_shouldThrow_whenNotFound() {
+    void findByIdError() {
         when(curvePointRepository.findById(999)).thenReturn(Optional.empty());
 
         assertThrows(NoSuchElementException.class, () -> curvePointService.findById(999));
     }
 
     @Test
-    void create_shouldSave() {
+    void create() {
         CurvePoint cp = new CurvePoint(1, 10d, 100d);
         when(curvePointRepository.save(cp)).thenReturn(cp);
 
@@ -71,7 +71,7 @@ class CurvePointServiceTest {
     }
 
     @Test
-    void update_shouldCopyFields_andSave() {
+    void update() {
         Integer id = 1;
 
         CurvePoint existing = new CurvePoint(1, 10d, 100d);
@@ -93,7 +93,7 @@ class CurvePointServiceTest {
     }
 
     @Test
-    void delete_shouldFindAndDelete() {
+    void delete() {
         Integer id = 1;
 
         CurvePoint existing = new CurvePoint(1, 10d, 100d);

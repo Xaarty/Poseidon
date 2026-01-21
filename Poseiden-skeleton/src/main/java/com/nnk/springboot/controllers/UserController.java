@@ -46,7 +46,6 @@ public class UserController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
         User user = userService.findById(id);
 
-        // On conserve ton comportement : ne pas afficher le hash
         user.setPassword("");
         model.addAttribute("user", user);
 

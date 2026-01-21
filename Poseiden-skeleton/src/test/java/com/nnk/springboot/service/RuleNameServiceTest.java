@@ -26,7 +26,7 @@ class RuleNameServiceTest {
     private RuleNameService ruleNameService;
 
     @Test
-    void findAll_shouldReturnList() {
+    void findAll() {
         when(ruleNameRepository.findAll()).thenReturn(List.of(
                 new RuleName("n1", "d1", "j1", "t1", "s1", "p1"),
                 new RuleName("n2", "d2", "j2", "t2", "s2", "p2")
@@ -39,13 +39,13 @@ class RuleNameServiceTest {
     }
 
     @Test
-    void findById_shouldThrow_whenNotFound() {
+    void findByIdError() {
         when(ruleNameRepository.findById(999)).thenReturn(Optional.empty());
         assertThrows(NoSuchElementException.class, () -> ruleNameService.findById(999));
     }
 
     @Test
-    void create_shouldSave() {
+    void create() {
         RuleName rn = new RuleName("n", "d", "j", "t", "s", "p");
         when(ruleNameRepository.save(rn)).thenReturn(rn);
 
@@ -56,7 +56,7 @@ class RuleNameServiceTest {
     }
 
     @Test
-    void update_shouldCopyFields_andSave() {
+    void update() {
         Integer id = 1;
 
         RuleName existing = new RuleName("oldN", "oldD", "oldJ", "oldT", "oldS", "oldP");
@@ -80,7 +80,7 @@ class RuleNameServiceTest {
     }
 
     @Test
-    void delete_shouldFindAndDelete() {
+    void delete() {
         Integer id = 1;
         RuleName existing = new RuleName("n", "d", "j", "t", "s", "p");
         existing.setId(id);

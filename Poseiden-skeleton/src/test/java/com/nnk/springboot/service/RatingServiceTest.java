@@ -26,7 +26,7 @@ class RatingServiceTest {
     private RatingService ratingService;
 
     @Test
-    void findAll_shouldReturnList() {
+    void findAll() {
         when(ratingRepository.findAll()).thenReturn(List.of(
                 new Rating("M1", "S1", "F1", 1),
                 new Rating("M2", "S2", "F2", 2)
@@ -39,7 +39,7 @@ class RatingServiceTest {
     }
 
     @Test
-    void findById_shouldReturnEntity_whenFound() {
+    void findByIdSucces() {
         Rating r = new Rating("M", "S", "F", 1);
         r.setId(1);
 
@@ -53,14 +53,14 @@ class RatingServiceTest {
     }
 
     @Test
-    void findById_shouldThrow_whenNotFound() {
+    void findByIdError() {
         when(ratingRepository.findById(999)).thenReturn(Optional.empty());
 
         assertThrows(NoSuchElementException.class, () -> ratingService.findById(999));
     }
 
     @Test
-    void create_shouldSave() {
+    void create() {
         Rating r = new Rating("M", "S", "F", 1);
         when(ratingRepository.save(r)).thenReturn(r);
 
@@ -71,7 +71,7 @@ class RatingServiceTest {
     }
 
     @Test
-    void update_shouldCopyFields_andSave() {
+    void update() {
         Integer id = 1;
 
         Rating existing = new Rating("OldM", "OldS", "OldF", 10);
@@ -94,7 +94,7 @@ class RatingServiceTest {
     }
 
     @Test
-    void delete_shouldFindAndDelete() {
+    void delete() {
         Integer id = 1;
 
         Rating existing = new Rating("M", "S", "F", 1);

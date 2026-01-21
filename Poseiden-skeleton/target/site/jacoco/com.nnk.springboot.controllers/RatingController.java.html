@@ -16,55 +16,55 @@ import javax.validation.Valid;
 public class RatingController {
     private final RatingService ratingService;
 
-<span class="nc" id="L19">    public RatingController(RatingService ratingService) {</span>
-<span class="nc" id="L20">        this.ratingService = ratingService;</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L19">    public RatingController(RatingService ratingService) {</span>
+<span class="fc" id="L20">        this.ratingService = ratingService;</span>
+<span class="fc" id="L21">    }</span>
 
     @RequestMapping(&quot;/rating/list&quot;)
     public String home(Model model)
     {
-<span class="nc" id="L26">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
-<span class="nc" id="L27">        return &quot;rating/list&quot;;</span>
+<span class="fc" id="L26">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
+<span class="fc" id="L27">        return &quot;rating/list&quot;;</span>
     }
 
     @GetMapping(&quot;/rating/add&quot;)
     public String addRatingForm(Rating rating) {
-<span class="nc" id="L32">        return &quot;rating/add&quot;;</span>
+<span class="fc" id="L32">        return &quot;rating/add&quot;;</span>
     }
 
     @PostMapping(&quot;/rating/validate&quot;)
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (result.hasErrors()) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (result.hasErrors()) {</span>
 <span class="nc" id="L38">            return &quot;rating/add&quot;;</span>
         }
 
-<span class="nc" id="L41">        ratingService.create(rating);</span>
-<span class="nc" id="L42">        return &quot;redirect:/rating/list&quot;;</span>
+<span class="fc" id="L41">        ratingService.create(rating);</span>
+<span class="fc" id="L42">        return &quot;redirect:/rating/list&quot;;</span>
     }
 
     @GetMapping(&quot;/rating/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L47">        model.addAttribute(&quot;rating&quot;, ratingService.findById(id));</span>
-<span class="nc" id="L48">        return &quot;rating/update&quot;;</span>
+<span class="fc" id="L47">        model.addAttribute(&quot;rating&quot;, ratingService.findById(id));</span>
+<span class="fc" id="L48">        return &quot;rating/update&quot;;</span>
     }
 
     @PostMapping(&quot;/rating/update/{id}&quot;)
     public String updateRating(@PathVariable(&quot;id&quot;) Integer id, @Valid Rating rating,
                              BindingResult result, Model model) {
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (result.hasErrors()) {</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (result.hasErrors()) {</span>
 <span class="nc" id="L55">            rating.setId(id);</span>
 <span class="nc" id="L56">            model.addAttribute(&quot;rating&quot;, rating);</span>
 <span class="nc" id="L57">            return &quot;rating/update&quot;;</span>
         }
 
-<span class="nc" id="L60">        ratingService.update(id, rating);</span>
-<span class="nc" id="L61">        return &quot;redirect:/rating/list&quot;;</span>
+<span class="fc" id="L60">        ratingService.update(id, rating);</span>
+<span class="fc" id="L61">        return &quot;redirect:/rating/list&quot;;</span>
     }
 
     @GetMapping(&quot;/rating/delete/{id}&quot;)
     public String deleteRating(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L66">        ratingService.delete(id);</span>
-<span class="nc" id="L67">        return &quot;redirect:/rating/list&quot;;</span>
+<span class="fc" id="L66">        ratingService.delete(id);</span>
+<span class="fc" id="L67">        return &quot;redirect:/rating/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
