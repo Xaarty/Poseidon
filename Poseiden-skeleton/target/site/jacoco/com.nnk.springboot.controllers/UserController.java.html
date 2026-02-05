@@ -46,11 +46,10 @@ public class UserController {
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
 <span class="fc" id="L47">        User user = userService.findById(id);</span>
 
-        // On conserve ton comportement : ne pas afficher le hash
-<span class="fc" id="L50">        user.setPassword(&quot;&quot;);</span>
-<span class="fc" id="L51">        model.addAttribute(&quot;user&quot;, user);</span>
+<span class="fc" id="L49">        user.setPassword(&quot;&quot;);</span>
+<span class="fc" id="L50">        model.addAttribute(&quot;user&quot;, user);</span>
 
-<span class="fc" id="L53">        return &quot;user/update&quot;;</span>
+<span class="fc" id="L52">        return &quot;user/update&quot;;</span>
     }
 
     @PostMapping(&quot;/user/update/{id}&quot;)
@@ -58,18 +57,18 @@ public class UserController {
                              @Valid User user,
                              BindingResult result,
                              Model model) {
-<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
-<span class="fc" id="L62">            return &quot;user/update&quot;;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
+<span class="fc" id="L61">            return &quot;user/update&quot;;</span>
         }
 
-<span class="fc" id="L65">        userService.update(id, user);</span>
-<span class="fc" id="L66">        return &quot;redirect:/user/list&quot;;</span>
+<span class="fc" id="L64">        userService.update(id, user);</span>
+<span class="fc" id="L65">        return &quot;redirect:/user/list&quot;;</span>
     }
 
     @GetMapping(&quot;/user/delete/{id}&quot;)
     public String deleteUser(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="fc" id="L71">        userService.delete(id);</span>
-<span class="fc" id="L72">        return &quot;redirect:/user/list&quot;;</span>
+<span class="fc" id="L70">        userService.delete(id);</span>
+<span class="fc" id="L71">        return &quot;redirect:/user/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
