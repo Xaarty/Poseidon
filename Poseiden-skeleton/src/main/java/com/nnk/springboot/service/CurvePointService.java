@@ -16,19 +16,31 @@ public class CurvePointService {
         this.curvePointRepository = curvePointRepository;
     }
 
+    /**
+     * Récupération de tous les CurvePoint
+     */
     public List<CurvePoint> findAll() {
         return curvePointRepository.findAll();
     }
 
+    /**
+     * Récupération d'un CurvePoint par identifiant unique
+     */
     public CurvePoint findById(Integer id) {
         return curvePointRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("CurvePoint introuvable id=" + id));
     }
 
+    /**
+     * Création d'un CurvePoint
+     */
     public CurvePoint create(CurvePoint curvePoint) {
         return curvePointRepository.save(curvePoint);
     }
 
+    /**
+     * Modification d'un CurvePoint par identifiant unique
+     */
     public CurvePoint update(Integer id, CurvePoint curvePoint) {
         CurvePoint existing = findById(id);
 
@@ -39,6 +51,9 @@ public class CurvePointService {
         return curvePointRepository.save(existing);
     }
 
+    /**
+     * Suppression d'un CurvePoint par identifiant unique
+     */
     public void delete(Integer id) {
         CurvePoint existing = findById(id);
         curvePointRepository.delete(existing);

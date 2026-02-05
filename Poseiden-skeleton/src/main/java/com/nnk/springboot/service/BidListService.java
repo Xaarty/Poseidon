@@ -16,19 +16,31 @@ public class BidListService {
         this.bidListRepository = bidListRepository;
     }
 
+    /**
+     * Recupération de tous les BidList
+     */
     public List<BidList> findAll() {
         return bidListRepository.findAll();
     }
 
+    /**
+     * Recupération d'un BidList par identifiant unique
+     */
     public BidList findById(Integer id) {
         return bidListRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("BidList not found id=" + id));
     }
 
+    /**
+     * Création d'un BidList
+     */
     public BidList create(BidList bid) {
         return bidListRepository.save(bid);
     }
 
+    /**
+     * Modification d'un BidList par identifiant unique
+     */
     public BidList update(Integer id, BidList bid) {
         BidList existing = findById(id);
 
@@ -45,6 +57,9 @@ public class BidListService {
         return bidListRepository.save(existing);
     }
 
+    /**
+     * Suppression d'un BidList par identifiant unique
+     */
     public void delete(Integer id) {
         BidList existing = findById(id);
         bidListRepository.delete(existing);
