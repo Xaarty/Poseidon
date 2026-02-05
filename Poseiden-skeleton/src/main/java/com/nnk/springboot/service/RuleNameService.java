@@ -16,19 +16,31 @@ public class RuleNameService {
         this.ruleNameRepository = ruleNameRepository;
     }
 
+    /**
+     * Récupération de tous les RuleName
+     */
     public List<RuleName> findAll() {
         return ruleNameRepository.findAll();
     }
 
+    /**
+     * Récupération d'un RuleName par identifiant unique
+     */
     public RuleName findById(Integer id) {
         return ruleNameRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("RuleName introuvable id=" + id));
     }
 
+    /**
+     * Création d'un RuleName
+     */
     public RuleName create(RuleName ruleName) {
         return ruleNameRepository.save(ruleName);
     }
 
+    /**
+     * Modification d'un RuleName par identifiant unique
+     */
     public RuleName update(Integer id, RuleName ruleName) {
         RuleName existing = findById(id);
 
@@ -42,6 +54,9 @@ public class RuleNameService {
         return ruleNameRepository.save(existing);
     }
 
+    /**
+     * Suppression d'un RuleName par identifiant unique
+     */
     public void delete(Integer id) {
         RuleName existing = findById(id);
         ruleNameRepository.delete(existing);

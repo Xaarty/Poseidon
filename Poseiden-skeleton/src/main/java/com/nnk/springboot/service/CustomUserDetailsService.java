@@ -20,6 +20,12 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Chargement d'un utilisateur pour l'authentification via Spring Security.
+     *
+     * Méthode est appelée par Spring Security lors du login
+     * Récupère l'utilisateur en base de données via le username
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User u = userRepository.findByUsername(username)

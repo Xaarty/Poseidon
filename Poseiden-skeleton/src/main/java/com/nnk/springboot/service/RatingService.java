@@ -16,19 +16,31 @@ public class RatingService {
         this.ratingRepository = ratingRepository;
     }
 
+    /**
+     * Récupération de tous les Rating
+     */
     public List<Rating> findAll() {
         return ratingRepository.findAll();
     }
 
+    /**
+     * Récupération d'un Rating par identifiant unique
+     */
     public Rating findById(Integer id) {
         return ratingRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Rating introuvable id=" + id));
     }
 
+    /**
+     * Création d'un Rating
+     */
     public Rating create(Rating rating) {
         return ratingRepository.save(rating);
     }
 
+    /**
+     * Modification d'un Rating par identifiant unique
+     */
     public Rating update(Integer id, Rating rating) {
         Rating existing = findById(id);
 
@@ -40,6 +52,9 @@ public class RatingService {
         return ratingRepository.save(existing);
     }
 
+    /**
+     * Suppression d'un Rating par identifiant unique
+     */
     public void delete(Integer id) {
         Rating existing = findById(id);
         ratingRepository.delete(existing);

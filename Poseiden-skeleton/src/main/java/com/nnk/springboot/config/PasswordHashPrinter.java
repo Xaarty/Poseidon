@@ -19,7 +19,7 @@ public class PasswordHashPrinter implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        String raw = "Admin1";
+        String raw = "A7!kP2@q";
         System.out.println("RAW=" + raw);
         System.out.println("BCRYPT=" + passwordEncoder.encode(raw));
     }
